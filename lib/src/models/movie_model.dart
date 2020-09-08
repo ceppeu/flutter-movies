@@ -27,6 +27,7 @@ class Movie {
   bool adult;
   String overview;
   String posterPath;
+  String uniqueId;
 
   Movie({
     this.popularity,
@@ -60,5 +61,17 @@ class Movie {
     adult = json['adult'];
     overview = json['overview'];
     posterPath = json['poster_path'];
+  }
+
+  getPosterImg() {
+    if (posterPath == null)
+      return 'https://icon-library.com/images/no-photo-available-icon/no-photo-available-icon-8.jpg';
+    return 'https://image.tmdb.org/t/p/w500/$posterPath';
+  }
+
+  getBgImg() {
+    if (posterPath == null)
+      return 'https://icon-library.com/images/no-photo-available-icon/no-photo-available-icon-8.jpg';
+    return 'https://image.tmdb.org/t/p/w500/$backdropPath';
   }
 }
